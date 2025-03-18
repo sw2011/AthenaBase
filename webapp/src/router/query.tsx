@@ -122,7 +122,7 @@ const Page: React.FC = () => {
 						<Button variant="ghost" size="icon"><PieChart /></Button>
 					</div>
 					<div className="flex items-center space-x-2 text-sm">
-						<div className="text-muted-foreground">Showing first {resp.data?.results.length} rows</div>
+						<div className="text-muted-foreground">Showing first {resp.data?.results?.length} rows</div>
 						<div className="flex items-center space-x-1"><LightningBoltIcon className="w-4" />{resp.latency}ms</div>
 						<Button variant="ghost" size="icon"><DownloadCloudIcon /></Button>
 					</div>

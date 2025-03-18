@@ -15,13 +15,13 @@ type BarChartProps = BarChartConfig & QueryChartProps
 
 const Chart: React.FC<BarChartProps> = (props) => {
 	const data = React.useMemo(() => {
-		return props.data.results.map(row => {
+		return props.data.results?.map(row => {
 			return row.reduce((acc, value, index) => {
 				const columnName = props.data.columns[index].name;
 				acc[`${columnName}-${index}`] = value;
 				return acc;
 			}, {} as Record<string, string | number>);
-		});
+		})||[];
 	}, [props.data]);
 
 	React.useEffect(() => {

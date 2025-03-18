@@ -17,12 +17,12 @@ type TableChartProps = TableChartConfig & QueryChartProps
 
 const Chart: React.FC<TableChartProps> = (props) => {
 	const data = React.useMemo(() => {
-		return props.data.results.map(
+		return props.data.results?.map(
 			result => result.reduce((acc, curr, index) => {
 				acc[index] = curr;
 				return acc;
 			}, {} as TableRowData)
-		);
+		)||[];
 	}, [props.data]);
 	const columns: ColumnDef<TableRowData, any>[] = React.useMemo(() => {
 		return props.data.columns.map((col, index) => {
